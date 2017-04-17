@@ -1,0 +1,12 @@
+<div *ngIf="task">
+  <h6 class="header">{{task.title}} details!</h6>
+  <div class="taskId"><label>id: </label>{{task.id}}</div>
+
+  <md-input-container class="title-wrapper">
+    <input mdInput placeholder="Title" [(ngModel)]="task.title">
+  </md-input-container>
+
+  <md-input-container class="description-wrapper">
+    <input mdInput placeholder="Description" [(ngModel)]="task.description">
+  </md-input-container>  
+</div>

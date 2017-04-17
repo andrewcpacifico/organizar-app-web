@@ -1,3 +1,24 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+  <span>{{title}}</span>
+</md-toolbar>
+
+<h6 class="section-title">My Tasks</h6>
+
+<md-list class="task-list" *ngIf="tasks; else loadingTemplate">
+  <md-list-item class="task" 
+    [class.selected]="task === selectedTask"
+    *ngFor="let task of tasks" 
+    (click)="onSelect(task)">
+    <md-icon md-list-icon>{{task.icon}}</md-icon>
+    <h3 class="task-title" md-line>{{task.title}}</h3>
+    <p md-line>
+      <span class="task-description">{{task.description}}</span>
+    </p>
+  </md-list-item>
+</md-list>
+
+<ng-template #loadingTemplate>
+  <md-spinner class="loadingSpinner"></md-spinner>
+</ng-template>
+
+<app-task-detail [task]="selectedTask"></app-task-detail>

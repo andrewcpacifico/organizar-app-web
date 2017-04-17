@@ -1,0 +1,10 @@
+@import '~@material/typography/mixins';
+
+.taskId {
+  @include mdc-typography(body1);
+}
+
+.header {
+  @include mdc-typography(title);
+  @include mdc-typography-adjust-margin(title);
+}
