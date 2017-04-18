@@ -4,16 +4,16 @@ import { Task } from './task';
 import { TaskService } from './task.service';
 
 describe('TaskService', () => {
+  let service;
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [TaskService]
-    });
+    service = new TaskService();
   });
 
-  it('getTasks(): should resolve with an array of tasks',
-  inject([TaskService], (service: TaskService) => {
-    service.getTaks().then((tasks) => {
+  it('getTasks(): should resolve with an array of tasks', (done) => {
+    service.getTasks().then((tasks) => {
       expect(tasks instanceof Array).toBeTruthy();
+      done();
     });
-  }));
+  });
 });
