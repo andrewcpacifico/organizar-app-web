@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   getTasks(): void {
-    this.taskService.getTaks().then((tasks) => {
+    this.taskService.getTasks().then((tasks) => {
       this.tasks = tasks;
     });
   }
