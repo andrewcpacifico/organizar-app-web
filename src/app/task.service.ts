@@ -8,7 +8,7 @@ export class TaskService {
 
   constructor() { }
 
-  getTaks(): Promise<Task[]> {
+  public getTasks(): Promise<Task[]> {
     return new Promise((resolve, reject) => {
       setTimeout(function() {
         resolve(TASKS);
