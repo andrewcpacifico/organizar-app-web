@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, fakeAsync, tick } from '@angular/core/testing';
 import { spy, stub } from 'sinon';
 
 import { AppComponent } from './app.component';
@@ -7,10 +7,15 @@ import { Task } from './task';
 import { TaskService } from './task.service';
 
 describe('AppComponent', () => {
-  let taskServiceStub;
+  let returnedTasks: Task[] = [
+    new Task(0, 'A task 0', 'A task desc', 'task-icon'),
+    new Task(1, 'A task 1', 'A task desc', 'task-icon'),
+    new Task(2, 'A task 2', 'A task desc', 'task-icon'),
+    new Task(3, 'A task 3', 'A task desc', 'task-icon'),
+  ];
   let fixture;
   let component;
-  let taskService: TaskService;
+  let taskService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -26,18 +31,7 @@ describe('AppComponent', () => {
       }
     })
     .compileComponents();
-
-    taskServiceStub = {
-      getTasks: function() {
-        return [
-          new Task(0, 'A task 0', 'A task desc', 'task-icon'),
-          new Task(1, 'A task 1', 'A task desc', 'task-icon'),
-          new Task(2, 'A task 2', 'A task desc', 'task-icon'),
-          new Task(3, 'A task 3', 'A task desc', 'task-icon'),
-        ];
-      }
-    };
-
+    
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.debugElement.componentInstance;
     taskService = fixture.debugElement.injector.get(TaskService);
@@ -54,4 +48,52 @@ describe('AppComponent', () => {
 
     expect(getTasksStub.calledOnce).toBeTruthy();
   });
+
+  it('should render tasks returned by service', fakeAsync(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    const getTasksStub = stub(taskService, 'getTasks')
+      .resolves(returnedTasks);
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+
+    const listItems: NodeList = compiled.querySelectorAll('md-list-item');
+    expect(listItems.length).toEqual(returnedTasks.length);
+
+    for (let i = 0; i < listItems.length; ++i) {
+      let item = <Element>listItems[i];
+      let task = returnedTasks[i];
+      let iconNode = item.querySelector('md-icon');
+      let titleNode = item.querySelector('.task-title');
+      let descNode = item.querySelector('.task-description');
+
+      expect(task.icon).toEqual(iconNode.textContent);
+      expect(task.title).toEqual(titleNode.textContent);
+      expect(task.description).toEqual(descNode.textContent);      
+    }    
+  }));
+
+  it('should render a loading spinner while tasks are loading', 
+  fakeAsync(() => {
+    let promiseResolver;
+    const promise = new Promise((resolve, reject) => {
+      promiseResolver = resolve;
+    });
+    const compiled = fixture.debugElement.nativeElement;
+    const getTasksStub = stub(taskService, 'getTasks')
+      .returns(promise);
+
+    fixture.detectChanges();
+
+    let spinner = compiled.querySelector('md-spinner');
+    expect(spinner).toBeTruthy();
+
+    promiseResolver([]);
+    tick();
+    fixture.detectChanges();
+
+    spinner = compiled.querySelector('md-spinner');
+    expect(spinner).toBeFalsy();
+  }));
 });
