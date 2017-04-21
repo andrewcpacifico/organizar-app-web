@@ -1,6 +1,6 @@
 # Organizar Web App
 
-[![CircleCI](https://circleci.com/gh/andrewcpacifico/organizar-app-web.svg?style=svg)](https://circleci.com/gh/andrewcpacifico/organizar-app-web)
+[![CircleCI](https://circleci.com/gh/andrewcpacifico/organizar-app-web.svg?style=svg)](https://circleci.com/gh/andrewcpacifico/organizar-app-web) [![Build Status](https://travis-ci.org/andrewcpacifico/organizar-app-web.svg?branch=master)](https://travis-ci.org/andrewcpacifico/organizar-app-web)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
