@@ -1,8 +1,10 @@
 machine:
     node:
-        version: 6.9.1
+        version: 6.10.1
+    npm:
+        version: 4.4.4
     timezone:
-        America/Sao_Paulo
+        America/Manaus
 
 test:
   override:    
