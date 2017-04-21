@@ -1,0 +1,15 @@
+machine:
+    node:
+        version: 6.9.1
+    timezone:
+        America/Sao_Paulo
+
+test:
+  override:    
+    - npm run lint
+  post:
+    - npm run build
+
+dependencies:
+  override:
+    - npm install
