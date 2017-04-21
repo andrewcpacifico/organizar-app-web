@@ -1,8 +1,6 @@
 machine:
     node:
-        version: 6.10.1
-    npm:
-        version: 4.4.4
+        version: 6.10.1    
     timezone:
         America/Manaus
 
@@ -15,4 +13,5 @@ test:
 
 dependencies:
   override:
+    - npm i -g npm
     - npm install
