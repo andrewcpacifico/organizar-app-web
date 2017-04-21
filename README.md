@@ -1,6 +1,11 @@
 # Organizar Web App
 
-[![CircleCI](https://circleci.com/gh/andrewcpacifico/organizar-app-web.svg?style=svg)](https://circleci.com/gh/andrewcpacifico/organizar-app-web) [![Build Status](https://travis-ci.org/andrewcpacifico/organizar-app-web.svg?branch=master)](https://travis-ci.org/andrewcpacifico/organizar-app-web)
+[![CircleCI](https://circleci.com/gh/andrewcpacifico/organizar-app-web.svg?style=svg)](https://circleci.com/gh/andrewcpacifico/organizar-app-web)
+[![Build Status](https://travis-ci.org/andrewcpacifico/organizar-app-web.svg?branch=master)](https://travis-ci.org/andrewcpacifico/organizar-app-web)
+[![bitHound Overall Score](https://www.bithound.io/github/andrewcpacifico/organizar-app-web/badges/score.svg)](https://www.bithound.io/github/andrewcpacifico/organizar-app-web)
+[![bitHound Dependencies](https://www.bithound.io/github/andrewcpacifico/organizar-app-web/badges/dependencies.svg)](https://www.bithound.io/github/andrewcpacifico/organizar-app-web/master/dependencies/npm)
+[![bitHound Dev Dependencies](https://www.bithound.io/github/andrewcpacifico/organizar-app-web/badges/devDependencies.svg)](https://www.bithound.io/github/andrewcpacifico/organizar-app-web/master/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/andrewcpacifico/organizar-app-web/badges/code.svg)](https://www.bithound.io/github/andrewcpacifico/organizar-app-web)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
