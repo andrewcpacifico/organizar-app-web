@@ -6,12 +6,13 @@ machine:
 
 test:
   override:    
-    - npm run lint
-    - npm test
+    - ng lint
+    - ng test --single-run
   post:
-    - npm run build
+    - ng build
 
 dependencies:
   override:
     - npm i -g npm
+    - npm i -g @angular/cli
     - npm install
